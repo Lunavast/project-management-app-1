@@ -12,7 +12,6 @@ import { DateComponent } from './date';
     template: `
         <div class="container dashboard-container">
             <date-now></date-now>
-            
             <h1>Hello {{name}}!</h1>
             <em>{{email}}</em>
             <article>
@@ -27,6 +26,5 @@ export class HomeDashboardComponent{
     photo = this.auth.userPhotoLink;
     email = this.auth.userEmail;
     name = this.auth.userDisplayName;
-
 }
 
