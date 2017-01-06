@@ -2,17 +2,22 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../auth/services/auth-service';
 
 
+import { DateComponent } from './date';
+
 @Component({
     selector: 'dashboard',
     styles:[
         require('./home-dashboard.scss')
     ],
     template: `
-        <div class="wrapper">
-            <img src='{{photo}}' width='85px' height='85px' />
-            <em>{{email}}</em>
+        <div class="container dashboard-container">
+            <date-now></date-now>
+            
             <h1>Hello {{name}}!</h1>
-            <p>This is your home dashboard!</p>
+            <em>{{email}}</em>
+            <article>
+                <p>This is your home dashboard!</p>
+            </article>
         </div>
      `
 })

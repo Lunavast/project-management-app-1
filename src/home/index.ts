@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth';
 
 import { HomeDashboardComponent } from './components/home-dashboard';
+import { DateComponent } from './components/date';
+
 
 const routes: Routes = [
     { path: 'home', component: HomeDashboardComponent, canActivate: [AuthGuard]}
@@ -12,7 +14,8 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [
-        HomeDashboardComponent
+        HomeDashboardComponent,
+        DateComponent
     ],
     imports: [
         CommonModule,

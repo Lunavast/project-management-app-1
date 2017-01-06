@@ -15,7 +15,6 @@ app.set('port', 3001);
 app.use(require('morgan')('dev'));
 app.use(express.static(`${PROJECT_ROOT_DIR}/target`));
 
-
 //=========================================================
 //  ROUTER
 //---------------------------------------------------------
