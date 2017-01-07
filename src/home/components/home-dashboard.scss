@@ -1,7 +1,16 @@
 .dashboard-container{
+    h4{
+        font-weight: bold;
+    }
     article{
        border-top: 1px solid #999;
        margin: 20px 0;
        padding: 15px 0;
+       p{
+           font-size: 14px;
+       }
+    }
+    em{
+        font-size: 14px;
     }
 }

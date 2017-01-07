@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../auth/services/auth-service';
 
-
 import { DateComponent } from './date';
+
 
 @Component({
     selector: 'dashboard',
@@ -12,11 +12,12 @@ import { DateComponent } from './date';
     template: `
         <div class="container dashboard-container">
             <date-now></date-now>
-            <h1>Hello {{name}}!</h1>
+            <h4>Hello {{name}}!</h4>
             <em>{{email}}</em>
             <article>
-                <p>This is your home dashboard!</p>
+                <p>This is your home dashboard! You can add tasks, view tasks and mark task if completed</p>
             </article>
+            <task-view></task-view>
         </div>
      `
 })

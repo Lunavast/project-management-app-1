@@ -7,6 +7,9 @@ import { AuthGuard } from '../auth';
 import { HomeDashboardComponent } from './components/home-dashboard';
 import { DateComponent } from './components/date';
 
+import { TaskViewComponent } from './components/task-view';
+import { TaskFormComponent } from './components/task-form';
+
 
 const routes: Routes = [
     { path: 'home', component: HomeDashboardComponent, canActivate: [AuthGuard]}
@@ -15,7 +18,9 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         HomeDashboardComponent,
-        DateComponent
+        DateComponent,
+        TaskViewComponent,
+        TaskFormComponent
     ],
     imports: [
         CommonModule,
