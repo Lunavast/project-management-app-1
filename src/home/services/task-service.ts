@@ -17,7 +17,7 @@ export class TaskService{
     private tasks$: FirebaseListObservable<ITask[]>; 
 
     constructor(af: AngularFire, auth: AuthService){
-        const path = `/home/${auth.id}`;
+        const path = `/tasks/${auth.id}`;
         
         this.tasks$ = af.database.list(path);
 

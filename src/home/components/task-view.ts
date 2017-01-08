@@ -1,4 +1,11 @@
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/pluck';
+
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { TaskService } from '../services/task-service';
+
 import { TaskFormComponent } from './task-form';
 
 @Component({
@@ -11,7 +18,7 @@ import { TaskFormComponent } from './task-form';
         <div class="row">
             <div class="col-md-4">
                 <h4>Add Tasks</h4>
-                <task-form></task-form>
+                <task-form (createTask)="taskService.createTask($event)"></task-form>
             </div>
             <div class="col-md-4">
                 <h4>Tasks List</h4>
@@ -25,5 +32,10 @@ import { TaskFormComponent } from './task-form';
     `
 })
 export class TaskViewComponent{
-
+    filter: Observable<any>;
+    constructor(public route: ActivatedRoute, public taskService: TaskService){
+        this.filter = route.params
+            .pluck('completed')
+            .do((value: string) => taskService.filterTasks(value));
+    }
 }
