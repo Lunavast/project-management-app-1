@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { TaskService } from '../services/task-service';
 
 import { TaskFormComponent } from './task-form';
+import { TaskListComponent } from './task-list';
 
 @Component({
     selector: 'task-view',
@@ -22,6 +23,7 @@ import { TaskFormComponent } from './task-form';
             </div>
             <div class="col-md-4">
                 <h4>Tasks List</h4>
+                <task-list></task-list>
             </div>
             <div class="col-md-4">
                 <h4>Tasks Done</h4>
