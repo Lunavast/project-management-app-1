@@ -26,6 +26,8 @@ import { TaskListComponent } from './task-list';
                 <task-list
                     [filter] = "filter | async"
                     [tasks]  = "taskService.visibleTasks$"
+                    (remove) = "taskService.removeTask($event)"
+                    (update) = "taskService.updateTask($event.task, $event.changes)"
                 ></task-list>
             </div>
             <div class="col-md-4">
