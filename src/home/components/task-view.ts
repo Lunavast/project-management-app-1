@@ -23,7 +23,10 @@ import { TaskListComponent } from './task-list';
             </div>
             <div class="col-md-4">
                 <h4>Tasks List</h4>
-                <task-list></task-list>
+                <task-list
+                    [filter] = "filter | async"
+                    [tasks]  = "taskService.visibleTasks$"
+                ></task-list>
             </div>
             <div class="col-md-4">
                 <h4>Tasks Done</h4>

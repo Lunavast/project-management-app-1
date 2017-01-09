@@ -7,9 +7,12 @@ import { ITask } from '../models/task';
     selector: 'task-list',
     template: `
     <div class="task-list">
+        <task-item
+         *ngFor="let task of tasks | async"
+         [task]="task">
+         </task-item>
     </div>
     `
-
 })
 
 export class TaskListComponent{

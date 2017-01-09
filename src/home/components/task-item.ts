@@ -5,8 +5,9 @@ import { ITask } from '../models/task';
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'task-item',
     template:
-    `
-    {{task}}
+    `<div class="task-item"><li>
+        {{task.title}}
+    </li></div>
     `
 })
 export class TaskItemComponent{
