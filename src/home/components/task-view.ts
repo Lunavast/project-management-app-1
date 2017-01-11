@@ -32,6 +32,7 @@ import { TaskListComponent } from './task-list';
             </div>
             <div class="col-md-4">
                 <h4>Tasks Done</h4>
+                <task-list-done></task-list-done>
             </div>
         </div>
     </div>

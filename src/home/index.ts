@@ -12,6 +12,7 @@ import { TaskViewComponent } from './components/task-view';
 import { TaskFormComponent } from './components/task-form';
 import { TaskListComponent } from './components/task-list';
 import { TaskItemComponent } from './components/task-item';
+import { TaskListDoneComponent } from './components/task-list-done';
 
 import { AutoFocusDirective } from './directives/autofocus-directive';
 import { TaskService } from './services/task-service';
@@ -28,7 +29,8 @@ const routes: Routes = [
         TaskViewComponent,
         TaskFormComponent,
         TaskListComponent,
-        TaskItemComponent
+        TaskItemComponent,
+        TaskListDoneComponent
     ],
     imports: [
         CommonModule,

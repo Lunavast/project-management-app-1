@@ -43,7 +43,7 @@ export class TaskItemComponent{
 
     submitDoneTask(): void{
         this.taskService.createDoneTask(this.task.title);
+        this.taskService.removeTask(this.task);
     }
-
 
 }
