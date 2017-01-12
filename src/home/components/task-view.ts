@@ -6,8 +6,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { TaskService } from '../services/task-service';
 
-import { TaskFormComponent } from './task-form';
-import { TaskListComponent } from './task-list';
+// import { TaskFormComponent } from './task-form';
+// import { TaskListComponent } from './task-list';
+// import { TaskListDoneComponent } from './task-list-done';
 
 @Component({
     selector: 'task-view',
@@ -32,7 +33,12 @@ import { TaskListComponent } from './task-list';
             </div>
             <div class="col-md-4">
                 <h4>Tasks Done</h4>
-                <task-list-done></task-list-done>
+                <task-list-done
+                    [filter1]   = "filter1 | async"
+                    [taskdone] = "taskService.visibleTasks1$"
+                    (remove)   = "taskService.removeTaskDone($event)"
+                >
+                </task-list-done>
             </div>
         </div>
     </div>
@@ -41,9 +47,17 @@ import { TaskListComponent } from './task-list';
 })
 export class TaskViewComponent{
     filter: Observable<any>;
+    
+    filter1: Observable<any>;
+
     constructor(public route: ActivatedRoute, public taskService: TaskService){
         this.filter = route.params
             .pluck('completed')
             .do((value: string) => taskService.filterTasks(value));
+        
+        this.filter1 = route.params
+            .pluck('completed')
+            .do((value: string) => taskService.filterDoneTasks(value));
+            
     }
 }

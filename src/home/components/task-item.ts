@@ -1,19 +1,12 @@
-// 
-// import 'rxjs/add/operator/do';
-// import 'rxjs/add/operator/pluck';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { TaskService } from '../services/task-service';
-// 
-
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { TaskService } from '../services/task-service';
 import { ITask } from '../models/task';
 import { IDoneTask } from '../models/task-done';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'task-item',
-        styles:[
+    styles:[
         require('./task-item.scss')
     ],
     template:
@@ -30,16 +23,11 @@ import { IDoneTask } from '../models/task-done';
 })
 export class TaskItemComponent{
     @Input()task: ITask;
-    @Input()taskdone: IDoneTask;
+
     @Output() remove = new EventEmitter(false);
     @Output() createDoneTask = new EventEmitter(false);
 
-    filter: Observable<any>;
-    constructor(public route: ActivatedRoute, public taskService: TaskService){
-        this.filter = route.params
-            .pluck('completed')
-            .do((value: string) => taskService.filterDoneTasks(value));
-    }
+    constructor(public taskService: TaskService){ }
 
     submitDoneTask(): void{
         this.taskService.createDoneTask(this.task.title);

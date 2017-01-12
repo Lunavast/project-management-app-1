@@ -15,4 +15,4 @@ export class Task implements ITask{
     constructor(title: string) {
         this.title = title;
     }
-}
+} 

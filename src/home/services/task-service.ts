@@ -20,7 +20,7 @@ export class TaskService{
     //task-done
     visibleTasks1$: Observable<IDoneTask[]>; 
 
-    private filter1$: ReplaySubject<any> = new ReplaySubject(2);
+    private filter1$: ReplaySubject<any> = new ReplaySubject(1);
     private filteredTasks1$: FirebaseListObservable<IDoneTask[]>;
     private tasks1$: FirebaseListObservable<IDoneTask[]>;
 
@@ -88,6 +88,9 @@ export class TaskService{
     //task-done 
     createDoneTask(title: string): firebase.Promise<any>{
         return  this.tasks1$.push(new DoneTask(title));
+    }
+    removeDoneTask(td: IDoneTask): firebase.Promise<any>{
+        return this.tasks1$.remove(td.$key);
     }
 
 
