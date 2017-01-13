@@ -23,8 +23,9 @@ import { IDoneTask } from '../models/task-done';
 })
 export class TaskItemComponent{
     @Input()task: ITask;
-
+    
     @Output() remove = new EventEmitter(false);
+  
     @Output() createDoneTask = new EventEmitter(false);
 
     constructor(public taskService: TaskService){ }

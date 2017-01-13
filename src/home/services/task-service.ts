@@ -62,8 +62,8 @@ export class TaskService{
     }
     
      //task-done 
-    filterDoneTasks(filter: string): void{
-            switch (filter) {
+    filterDoneTasks(filter1: string): void{
+            switch (filter1) {
                 case 'false':
                     this.filter1$.next(false);
                     break;
@@ -93,5 +93,8 @@ export class TaskService{
         return this.tasks1$.remove(td.$key);
     }
 
+    updateDoneTask(td: IDoneTask, changes1): firebase.Promise<any>{
+        return this.tasks1$.update(td.$key, changes1);
+    }
 
-}
+}   

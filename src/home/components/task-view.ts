@@ -34,22 +34,20 @@ import { TaskService } from '../services/task-service';
             <div class="col-md-4">
                 <h4>Tasks Done</h4>
                 <task-list-done
-                    [filter1]   = "filter1 | async"
-                    [taskdone] = "taskService.visibleTasks1$"
-                    (remove)   = "taskService.removeTaskDone($event)"
-                >
+                    [filter1]        = "filter1 | async"
+                    [taskdone]       = "taskService.visibleTasks1$"
+                    (removedonetask) = "taskService.removeDoneTask($event)"   
+                    (updatedonetask) = "taskService.updateDoneTask($event.td, $event.changes1)"
+                    >
                 </task-list-done>
             </div>
         </div>
-    </div>
-    
-    `
+    </div>`
 })
 export class TaskViewComponent{
     filter: Observable<any>;
-    
     filter1: Observable<any>;
-
+    
     constructor(public route: ActivatedRoute, public taskService: TaskService){
         this.filter = route.params
             .pluck('completed')

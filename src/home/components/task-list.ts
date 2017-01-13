@@ -13,7 +13,7 @@ import { ITask } from '../models/task';
         (remove)="remove.emit(task)"
         (update)="update.emit({task: task, changes: $event})"></task-item>
     </div>
-    `
+    `   
 })
 
 export class TaskListComponent{
