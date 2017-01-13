@@ -6,10 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { TaskService } from '../services/task-service';
 
-// import { TaskFormComponent } from './task-form';
-// import { TaskListComponent } from './task-list';
-// import { TaskListDoneComponent } from './task-list-done';
-
 @Component({
     selector: 'task-view',
     styles:[

@@ -19,6 +19,4 @@ import { IDoneTask } from '../models/task-done';
 export class TaskItemDoneComponent {
     @Input() td: IDoneTask;
     @Output() removedonetask = new EventEmitter();
-
-
 }

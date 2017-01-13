@@ -12,27 +12,59 @@ import { IDoneTask } from '../models/task-done';
     template:
     `<div class="task-item">
         <i class="fa fa-check" aria-hidden="true"
-           (click)="submitDoneTask()"
-        ></i>
+           (click)="submitDoneTask()">
+        </i>
+        <i class="fa fa-pencil" aria-hidden="true"
+            [class.selected] = "task === selectedTask"
+            (click)="onSelect(task)">
+        </i>
         <i class="fa fa-trash" aria-hidden="true"
             (click)="remove.emit()">
         </i><span>
-        {{task.title}}
+      
+        <div *ngIf="!(task===selectedTask)">
+            {{task.title}}
+        </div>
+        <div *ngIf="task===selectedTask">
+            <input [(ngModel)]="task.title" placeholder="" />
+            <i class="fa fa-floppy-o" aria-hidden="true"
+            (click)="updateTask()"></i>
+        </div>
+
     </span></div>
     `
 })
 export class TaskItemComponent{
-    @Input()task: ITask;
-    
-    @Output() remove = new EventEmitter(false);
-  
-    @Output() createDoneTask = new EventEmitter(false);
-
     constructor(public taskService: TaskService){ }
+    @Input()task: ITask;
+
+    @Output() remove = new EventEmitter(false);
+    @Output() update = new EventEmitter(false);
+    @Output() createDoneTask = new EventEmitter(false);
 
     submitDoneTask(): void{
         this.taskService.createDoneTask(this.task.title);
         this.taskService.removeTask(this.task);
     }
 
+    // For Edit Implementation
+    editing: boolean = false;
+    title: string = '';
+
+    selectedTask: ITask;
+
+    onSelect(task: ITask): void{
+        this.selectedTask = this.task;
+        this.editing = true;
+        this.title = this.task.title;
+    }
+    
+    // For Update Implementation
+    updateTask(): void{
+        if(this.editing){
+            this.update.emit(this.task.title);
+            console.log("Updating...");
+        }
+    
+    } 
 }
