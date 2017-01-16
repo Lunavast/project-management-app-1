@@ -26,7 +26,9 @@ import { IDoneTask } from '../models/task-done';
             {{task.title}}
         </div>
         <div *ngIf="task===selectedTask">
-            <input [(ngModel)]="title" placeholder="" />
+            <input [(ngModel)]="title"
+            (keyup.enter)="enterKeyEditing()"
+            placeholder="" />
             <i class="fa fa-floppy-o" aria-hidden="true"
             (click)="updateTask()"></i>
         </div>
@@ -59,11 +61,21 @@ export class TaskItemComponent{
     }
     
     // For Update Implementation
-    updateTask(): void{
-        if(this.editing){
+    enterKeyEditing(): void{
+         if(this.editing){ 
             const title: string = this.title.trim();
             this.update.emit({title});
-        }
+         }
+    }
+    updateTask(): void{
+         if(this.editing){ 
+            const title: string = this.title.trim();
+            this.update.emit({title});
+         }
     } 
+    
+    // stopEditing(): void{
+    //     this.editing = false;
+    // }
 
 }
