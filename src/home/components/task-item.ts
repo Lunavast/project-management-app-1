@@ -26,7 +26,7 @@ import { IDoneTask } from '../models/task-done';
             {{task.title}}
         </div>
         <div *ngIf="task===selectedTask">
-            <input [(ngModel)]="task.title" placeholder="" />
+            <input [(ngModel)]="title" placeholder="" />
             <i class="fa fa-floppy-o" aria-hidden="true"
             (click)="updateTask()"></i>
         </div>
@@ -50,21 +50,20 @@ export class TaskItemComponent{
     // For Edit Implementation
     editing: boolean = false;
     title: string = '';
-
     selectedTask: ITask;
-
+    
     onSelect(task: ITask): void{
-        this.selectedTask = this.task;
         this.editing = true;
+        this.selectedTask = this.task;
         this.title = this.task.title;
     }
     
     // For Update Implementation
     updateTask(): void{
         if(this.editing){
-            this.update.emit(this.task.title);
-            console.log("Updating...");
+            const title: string = this.title.trim();
+            this.update.emit({title});
         }
-    
     } 
+
 }

@@ -92,7 +92,6 @@ export class TaskService{
     removeDoneTask(td: IDoneTask): firebase.Promise<any>{
         return this.tasks1$.remove(td.$key);
     }
-
     updateDoneTask(td: IDoneTask, changes1): firebase.Promise<any>{
         return this.tasks1$.update(td.$key, changes1);
     }
