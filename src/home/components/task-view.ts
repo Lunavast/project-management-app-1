@@ -12,6 +12,7 @@ import { TaskService } from '../services/task-service';
         require('./task-view.scss')
     ],
     template:`
+    <navigation></navigation>
     <div class="container task-view">
         <div class="row">
             <div class="col-md-4">

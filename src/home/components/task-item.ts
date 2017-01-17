@@ -73,7 +73,6 @@ export class TaskItemComponent{
             this.update.emit({title});
          }
     } 
-    
     // stopEditing(): void{
     //     this.editing = false;
     // }

@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from '../auth';
 
+import { NavigationComponent } from './components/navigation';
 import { HomeDashboardComponent } from './components/home-dashboard';
 import { DateComponent } from './components/date';
 
@@ -19,12 +20,15 @@ import { AutoFocusDirective } from './directives/autofocus-directive';
 import { TaskService } from './services/task-service';
 
 const routes: Routes = [
-    { path: 'home', component: HomeDashboardComponent, canActivate: [AuthGuard]}
+    { path: 'navigation', component: NavigationComponent, canActivate: [AuthGuard]},
+    { path: 'home', component: HomeDashboardComponent, canActivate: [AuthGuard]},
+    { path: 'tasks', component: TaskViewComponent, canActivate:[ AuthGuard]}
 ];
 
 @NgModule({
     declarations: [
         AutoFocusDirective,
+        NavigationComponent,
         HomeDashboardComponent,
         DateComponent,
         TaskViewComponent,
