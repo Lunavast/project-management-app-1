@@ -1,8 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Attribute } from '@angular/core';
 import { AuthService } from '../../auth/services/auth-service';
-
-import { DateComponent } from './date';
-
 
 @Component({
     selector: 'dashboard',
@@ -12,7 +9,7 @@ import { DateComponent } from './date';
     template: `
         <navigation></navigation>
         <div class="container dashboard-container">
-            <date-now></date-now>
+            <span class="date">{{date}}</span>
             <h4>Hello {{name}}!</h4>
             <em>{{email}}</em>
             <article>
@@ -22,9 +19,13 @@ import { DateComponent } from './date';
         </div>
      `
 })
-
 export class HomeDashboardComponent{ 
-    constructor (private auth: AuthService) {}
+    private date;
+    private format;
+    constructor (private auth: AuthService, @Attribute("format") format ) {
+        this.date = new Date();
+        this.format = format;
+    }
     photo = this.auth.userPhotoLink;
     email = this.auth.userEmail;
     name = this.auth.userDisplayName;

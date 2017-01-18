@@ -7,7 +7,6 @@ import { AuthGuard } from '../auth';
 
 import { NavigationComponent } from './components/navigation';
 import { HomeDashboardComponent } from './components/home-dashboard';
-import { DateComponent } from './components/date';
 
 import { TaskViewComponent } from './components/task-view';
 import { TaskFormComponent } from './components/task-form';
@@ -30,7 +29,6 @@ const routes: Routes = [
         AutoFocusDirective,
         NavigationComponent,
         HomeDashboardComponent,
-        DateComponent,
         TaskViewComponent,
         TaskFormComponent,
         TaskListComponent,
