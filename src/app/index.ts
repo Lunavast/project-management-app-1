@@ -4,7 +4,10 @@ import { RouterModule } from '@angular/router';
 
 import { AuthModule } from '../auth';
 import { FirebaseModule } from '../firebase';
+
+import { RoutingModule } from '../common';
 import { HomeModule } from '../home';
+import { TasksModule } from '../tasks';
 
 import { AppComponent } from './components/app';
 import { AppHeaderComponent } from './components/app-header';
@@ -23,6 +26,7 @@ import { AppHeaderComponent } from './components/app-header';
     RouterModule.forRoot([], {useHash: false}),
     AuthModule,
     FirebaseModule,
+    RoutingModule,
     HomeModule
   ]
 })

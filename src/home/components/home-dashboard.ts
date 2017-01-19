@@ -1,13 +1,15 @@
 import { Component, Attribute } from '@angular/core';
 import { AuthService } from '../../auth/services/auth-service';
 
+//  import { NavigationComponent } from '../../common/components/navigation';
+
 @Component({
-    selector: 'dashboard',
+    selector: 'home-dashboard',
     styles:[
         require('./home-dashboard.scss')
     ],
     template: `
-        <navigation></navigation>
+
         <div class="container dashboard-container">
             <span class="date">{{date}}</span>
             <h4>Hello {{name}}!</h4>
@@ -30,3 +32,5 @@ export class HomeDashboardComponent{
     email = this.auth.userEmail;
     name = this.auth.userDisplayName;
 }
+
+        // <navigation></navigation>
