@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
     selector: 'project-view',
@@ -7,7 +9,8 @@ import { Component } from '@angular/core';
     ],
     template: `
         <div class="project-view container">
-            <button class="btn-danger">
+            <button class="btn btn-danger" 
+                (click)="showAddProject()">
                 Add New Project
             </button>
         </div>
@@ -16,4 +19,9 @@ import { Component } from '@angular/core';
 
 export class ProjectViewComponent{
 
+    constructor(private router: Router){}
+
+    showAddProject(): void{
+        this.router.navigate(['/addproject']);
+    }
 }
