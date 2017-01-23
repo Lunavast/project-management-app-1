@@ -10,10 +10,13 @@ import { AuthService } from '../../auth';
   template: `
     <app-header
       [authenticated]="auth.authenticated"
-      (signOut)="signOut()"></app-header>
-
+      (signOut)="signOut()">
+      </app-header>
+      
     <main class="main">
-      <app-navigation></app-navigation>
+      <app-navigation
+      [authenticated]="auth.authenticated"
+      ></app-navigation>
     </main>
   `
 })

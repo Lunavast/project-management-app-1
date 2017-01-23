@@ -1,6 +1,5 @@
-import { Component, NgModule }  from '@angular/core';
+import { Component, NgModule, Input }  from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 
 @Component({
     selector: 'app-navigation',
@@ -9,7 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
     ],
     template: `
      <div class="container">
-        <nav class="navigation">
+        <nav class="navigation"
+        *ngIf="authenticated">
             <ul>
             <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
             <li><a routerLink="/tasks" routerLinkActive="active">Tasks</a></li>
@@ -22,5 +22,5 @@ import { RouterModule, Routes } from '@angular/router';
 })
 
 export class AppNavigationComponent {
-
+    @Input() authenticated: boolean;
 }

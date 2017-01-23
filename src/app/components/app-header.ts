@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
-
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-header',
