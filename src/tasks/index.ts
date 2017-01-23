@@ -6,9 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from '../auth';
-// import { RoutingModule } from '../common';
-
-// import { NavigationComponent } from './components/navigation';
 
 import { TaskViewComponent } from './components/task-view';
 import { TaskFormComponent } from './components/task-form';

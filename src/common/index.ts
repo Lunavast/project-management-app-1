@@ -7,10 +7,12 @@ import { TasksModule } from '../tasks';
 
 import { HomeDashboardComponent } from '../home/components/home-dashboard';
 import { TaskViewComponent } from '../tasks/components/task-view';
+import { ProjectViewComponent } from '../projects/components/project-view';
 
 const routes: Routes = [
    { path: 'home', component: HomeDashboardComponent, canActivate: [AuthGuard]},
-   { path: 'tasks', component: TaskViewComponent, canActivate:[ AuthGuard]}
+   { path: 'tasks', component: TaskViewComponent, canActivate:[ AuthGuard]},
+   { path: 'projects', component: ProjectViewComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

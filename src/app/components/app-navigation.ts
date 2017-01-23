@@ -13,6 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
             <ul>
             <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
             <li><a routerLink="/tasks" routerLinkActive="active">Tasks</a></li>
+            <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
             </ul>
         </nav>
         <router-outlet></router-outlet>

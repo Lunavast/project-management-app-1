@@ -56,6 +56,3 @@ export class TaskViewComponent{
             
     }
 }
-
-
-    // <navigation></navigation>
