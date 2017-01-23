@@ -11,7 +11,7 @@ import { TasksModule } from '../tasks';
 
 import { AppComponent } from './components/app';
 import { AppHeaderComponent } from './components/app-header';
-
+import { AppNavigationComponent } from './components/app-navigation';
 
 @NgModule({
   bootstrap: [
@@ -19,7 +19,8 @@ import { AppHeaderComponent } from './components/app-header';
   ],
   declarations: [
     AppComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    AppNavigationComponent
   ],
   imports: [
     BrowserModule,

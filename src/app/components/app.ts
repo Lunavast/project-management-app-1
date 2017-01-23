@@ -13,7 +13,7 @@ import { AuthService } from '../../auth';
       (signOut)="signOut()"></app-header>
 
     <main class="main">
-      <router-outlet></router-outlet>
+      <app-navigation></app-navigation>
     </main>
   `
 })
